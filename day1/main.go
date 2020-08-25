@@ -6,16 +6,15 @@ import (
 	"fmt"
 	"github.com/gorilla/mux"
 	"log"
-	"math"
 	"net/http"
 	"strconv"
 )
 
 type Solution struct {
-	A      float64 `json:"a"`
-	B      float64 `json:"b"`
-	C      float64 `json:"c"`
-	NRoots int     `json:"n_roots"`
+	A      int `json:"a"`
+	B      int `json:"b"`
+	C      int `json:"c"`
+	NRoots int `json:"n_roots"`
 }
 
 var solutions []Solution
@@ -34,9 +33,9 @@ func main() {
 func AddSolution(writer http.ResponseWriter, request *http.Request) {
 	var solution Solution
 	reqBody := mux.Vars(request)
-	solution.A, _ = strconv.ParseFloat(reqBody["a"], 64)
-	solution.B, _ = strconv.ParseFloat(reqBody["b"], 64)
-	solution.C, _ = strconv.ParseFloat(reqBody["c"], 64)
+	solution.A, _ = strconv.Atoi(reqBody["a"])
+	solution.B, _ = strconv.Atoi(reqBody["b"])
+	solution.C, _ = strconv.Atoi(reqBody["c"])
 
 	CountNRoots(&solution)
 	solutions = append(solutions, solution)
@@ -53,7 +52,7 @@ func CountNRoots(s *Solution) {
 		return
 	}
 
-	discr := math.Pow(s.B, 2) - 4*s.A*s.C
+	discr := s.B*s.B - 4*s.A*s.C
 	if discr == 0 {
 		s.NRoots = 1
 	} else if discr > 0 {
