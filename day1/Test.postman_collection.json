@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "83ef287a-628b-4d2d-b5fb-c85095e57b63",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/solve/1/2/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"solve",
+						"1",
+						"2",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getlast",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/solution",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"solution"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
