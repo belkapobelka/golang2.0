@@ -54,9 +54,7 @@ func CountNRoots(s *Solution) {
 	}
 
 	discr := math.Pow(s.B, 2) - 4*s.A*s.C
-	x1 := (-s.B + math.Sqrt(discr)) / (2 * s.A)
-	x2 := (-s.B - math.Sqrt(discr)) / (2 * s.A)
-	if discr == 0 || x1 == x2 {
+	if discr == 0 {
 		s.NRoots = 1
 	} else if discr > 0 {
 		s.NRoots = 2
