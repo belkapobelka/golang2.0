@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package chat;
 
-option go_package ="/day2_1";
+option go_package ="/pkg";
 
 message Message{
   string body = 1;
@@ -10,4 +10,5 @@ message Message{
 
 service ChatService{
   rpc SayHello (Message) returns (Message){};
+  rpc SayGoodbye (Message) returns (Message){};
 }
